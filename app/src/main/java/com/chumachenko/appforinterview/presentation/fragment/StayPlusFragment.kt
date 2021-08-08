@@ -75,7 +75,7 @@ class StayPlusFragment : Fragment(R.layout.fragment_stay_plus) {
                     sflPostPlacesShimmer.startShimmer()
                 }
                 Status.SUCCESS -> {
-                    response.data?.let { list->
+                    response.data?.let { list ->
                         stayPlusAdapter?.updateList(list)
                     }
                     sflPostPlacesShimmer.stopShimmer()

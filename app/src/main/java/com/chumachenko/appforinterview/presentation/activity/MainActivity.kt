@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), HasAndroidInjector {
         startFragment()
     }
 
-    private fun startFragment() = supportFragmentManager.beginTransaction().apply{
+    private fun startFragment() = supportFragmentManager.beginTransaction().apply {
         replace(
             R.id.container,
             StayPlusFragment.newInstance()

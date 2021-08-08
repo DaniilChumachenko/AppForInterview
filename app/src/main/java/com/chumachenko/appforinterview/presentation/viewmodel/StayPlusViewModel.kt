@@ -46,7 +46,7 @@ class StayPlusViewModel @Inject constructor(private val stayPlusRepository: Stay
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe { _stayPlusLocalItem.postValue(Resource.loading()) }
                 .doAfterTerminate {
-                    if (stayPlusLocalItem.value?.data?.size?:0 == 0)
+                    if (stayPlusLocalItem.value?.data?.size ?: 0 == 0)
                         getImagesResponse()
                 }
                 .subscribe(({

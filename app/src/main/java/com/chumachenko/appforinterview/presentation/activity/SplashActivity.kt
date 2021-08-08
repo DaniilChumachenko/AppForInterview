@@ -33,7 +33,6 @@ class SplashActivity : AppCompatActivity(), HasAndroidInjector {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe {
-//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             }
