@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/yellow"
+    android:orientation="vertical"
+    tools:context="com.chumachenko.appforinterview.presentation.fragment.StayPlusFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:overScrollMode="never" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/sflPostPlacesShimmer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include layout="@layout/item_stay_plus" />
+
+            <include layout="@layout/item_stay_plus" />
+
+            <include layout="@layout/item_stay_plus" />
+
+            <include layout="@layout/item_stay_plus" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sf_ui_display"
+        android:text="@string/stay_plus_fragment_title"
+        android:textColor="@color/dark"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:fontFamily="@font/sf_ui_display"
+        android:text="@string/stay_plus_fragment_sub_title"
+        android:textColor="@color/dark"
+        android:textSize="16sp"
+        android:textStyle="normal" />
+
+
+    <FrameLayout
+        android:id="@+id/stayPlusFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+<!--    <include layout="@layout/fragment_search" />-->
+
+</LinearLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AppForInterview</string>
+    <string name="loading_error">Mistake! Something went wrong! </string>
+    <string name="not_added">Not added yet!</string>
+    <string name="icon_profile">Profile</string>
+    <string name="icon_chat">Chat</string>
+    <string name="stay_plus_fragment_title">Compare stays \nlike never before</string>
+    <string name="stay_plus_fragment_sub_title">Book best one match you the most</string>
+    <string name="first_field_sub_title">Enter Destination, Property or Staylist</string>
+    <string name="first_field_title">Los Angeles</string>
+    <string name="second_field_sub_title">Guests</string>
+    <string name="second_field_title">1 Room, 2 Adults</string>
+    <string name="third_field_sub_title_in">Check in</string>
+    <string name="first_field_sub_title_out">Check out</string>
+    <string name="third_field_title_in">Apr 15, 2020</string>
+    <string name="third_field_title_out">Apr 18,2020</string>
+    <string name="search_title_btn">Search</string>
+</resources>

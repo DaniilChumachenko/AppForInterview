@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        kotlin_version = '1.5.10'
+        dagger_version = '2.35.1'
+        constraint_layout = '2.1.0'
+        retrofit_version = '2.9.0'
+        material_version = '1.4.0'
+        rxandroid_version = '2.1.1'
+        multidex_version = '1.0.3'
+        picasso_version = '2.71828'
+        sshimmer_version = '0.5.0'
+    }
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath "io.realm:realm-gradle-plugin:10.0.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.google.gms:google-services:4.3.9"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
