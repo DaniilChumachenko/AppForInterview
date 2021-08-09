@@ -3,9 +3,11 @@ package com.chumachenko.appforinterview.presentation.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.chumachenko.appforinterview.R
 import com.chumachenko.appforinterview.data.repository.model.StayPlusItem
+import com.chumachenko.appforinterview.presentation.support.DiffUtilCallback
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_stay_plus.view.*
 import java.util.*
@@ -28,12 +30,10 @@ class StayPlusAdapter(
         holder.bind(list[position])
     }
 
-    fun updateList(newList: List<StayPlusItem>) {
-        val oldSize = itemCount
-        this.list.clear()
-        this.list.addAll(newList.sortedBy { it.image })
-        notifyItemRangeRemoved(0, oldSize)
-        notifyItemRangeInserted(0, itemCount)
+    fun updateList(newList: List<StayPlusItem>)= DiffUtil.calculateDiff(DiffUtilCallback(this.list, newList)).let {
+        list.clear()
+        list.addAll(newList)
+        it.dispatchUpdatesTo(this)
     }
 
     inner class ItemTagViewHolder(view: View) : RecyclerView.ViewHolder(view) {

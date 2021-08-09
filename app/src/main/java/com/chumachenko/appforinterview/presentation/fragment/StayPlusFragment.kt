@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.chumachenko.appforinterview.R
 import com.chumachenko.appforinterview.presentation.adapter.StayPlusAdapter
-import com.chumachenko.appforinterview.presentation.viewmodel.Status
+import com.chumachenko.appforinterview.presentation.support.Status
 import com.chumachenko.appforinterview.presentation.viewmodel.StayPlusViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection

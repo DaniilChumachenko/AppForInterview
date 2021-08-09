@@ -2,16 +2,15 @@ package com.chumachenko.appforinterview.presentation.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.chumachenko.appforinterview.data.repository.StayPlusRepository
 import com.chumachenko.appforinterview.data.repository.model.StayPlusItem
+import com.chumachenko.appforinterview.presentation.support.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class StayPlusViewModel @Inject constructor(private val stayPlusRepository: StayPlusRepository) :
-    ViewModel() {
+    BaseViewModel() {
 
     private val _stayPlusResponseItem: MutableLiveData<Resource<List<StayPlusItem>>> =
         MutableLiveData()
@@ -21,11 +20,8 @@ class StayPlusViewModel @Inject constructor(private val stayPlusRepository: Stay
         MutableLiveData()
     val stayPlusLocalItem: LiveData<Resource<List<StayPlusItem>>> = _stayPlusLocalItem
 
-
-    private val compositeDisposable = CompositeDisposable()
-
     private fun getImagesResponse() {
-        compositeDisposable.add(
+        launch {
             stayPlusRepository.getStayPlusByLocal()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -36,11 +32,11 @@ class StayPlusViewModel @Inject constructor(private val stayPlusRepository: Stay
                     _stayPlusResponseItem.value = Resource.error()
                     error.printStackTrace()
                 }))
-        )
+        }
     }
 
     fun getImagesLocal() {
-        compositeDisposable.add(
+        launch {
             stayPlusRepository.getFromLocal()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -55,12 +51,6 @@ class StayPlusViewModel @Inject constructor(private val stayPlusRepository: Stay
                     _stayPlusLocalItem.value = Resource.error()
                     error.printStackTrace()
                 }))
-
-        )
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        compositeDisposable.dispose()
+        }
     }
 }

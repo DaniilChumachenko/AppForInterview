@@ -1,4 +1,4 @@
-package com.chumachenko.appforinterview.presentation.viewmodel
+package com.chumachenko.appforinterview.presentation.support
 
 class Resource<T>(
     val status: Status,
